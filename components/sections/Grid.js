@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Filters from "./Filters";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 function Grid({ posts }) {
   const [filteredPosts, setFilteredPosts] = useState(posts);
@@ -17,8 +18,19 @@ function Grid({ posts }) {
         <AnimatePresence>
           {filteredPosts?.map((post) => {
             return (
-              <motion.div layout="position" key={post.id}>
-                <img src={post.image} />
+              <motion.div
+                layout="position"
+                key={post.id}
+                className="w-full relative"
+              >
+                <div className="relative w-full h-full">
+                  <Image
+                    src={post.image}
+                    width={728}
+                    height={970}
+                    alt={post.model}
+                  />
+                </div>
               </motion.div>
             );
           })}

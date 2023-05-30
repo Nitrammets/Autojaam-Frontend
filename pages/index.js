@@ -3,7 +3,6 @@ import Accordion from "@/components/sections/Accordion";
 import Grid from "@/components/sections/Grid";
 
 export default function Home({ posts }) {
-  console.log(posts);
   return (
     <main className="flex flex-col items-center">
       <Accordion />
@@ -23,7 +22,7 @@ export async function getStaticProps() {
       model: "308",
       price: "30000",
       body: ["0", "1"],
-      image: "./GridExamples/308.png",
+      image: "/GridExamples/308.png",
     },
     {
       id: 2,
@@ -31,7 +30,7 @@ export async function getStaticProps() {
       model: "A6",
       price: "30000",
       body: ["2"],
-      image: "./GridExamples/A6.png",
+      image: "/GridExamples/A6.png",
     },
     {
       id: 3,
@@ -39,7 +38,7 @@ export async function getStaticProps() {
       model: "Ateca",
       price: "30000",
       body: ["4"],
-      image: "./GridExamples/AtecaC.png",
+      image: "/GridExamples/AtecaC.png",
     },
     {
       id: 4,
@@ -47,7 +46,7 @@ export async function getStaticProps() {
       model: "Born",
       price: "30000",
       body: ["0"],
-      image: "./GridExamples/Born.png",
+      image: "/GridExamples/Born.png",
     },
     {
       id: 5,
@@ -55,7 +54,7 @@ export async function getStaticProps() {
       model: "Cayenne",
       price: "30000",
       body: ["4"],
-      image: "./GridExamples/Cayenne.png",
+      image: "/GridExamples/Cayenne.png",
     },
     {
       id: 6,
@@ -63,7 +62,7 @@ export async function getStaticProps() {
       model: "Defender",
       price: "30000",
       body: ["5"],
-      image: "./GridExamples/Defender.png",
+      image: "/GridExamples/Defender.png",
     },
     {
       id: 7,
@@ -71,7 +70,7 @@ export async function getStaticProps() {
       model: "Mutlivan",
       price: "30000",
       body: ["6"],
-      image: "./GridExamples/Multivan.png",
+      image: "/GridExamples/Multivan.png",
     },
     {
       id: 8,
@@ -79,7 +78,7 @@ export async function getStaticProps() {
       model: "Passat",
       price: "30000",
       body: ["2"],
-      image: "./GridExamples/Passat.png",
+      image: "/GridExamples/Passat.png",
     },
     {
       id: 9,
@@ -87,7 +86,7 @@ export async function getStaticProps() {
       model: "Taycan",
       price: "30000",
       body: ["3"],
-      image: "./GridExamples/Taycan.png",
+      image: "/GridExamples/Taycan.png",
     },
   ];
 
