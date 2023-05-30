@@ -1,6 +1,13 @@
 import React from "react";
 import IconFilter from "./IconFilter";
-import Tesla from "@/public/Tesla";
+import Tesla from "@/public/icons/Tesla";
+import Variant from "@/public/icons/Variant";
+import Suv from "@/public/icons/Suv";
+import Sedan from "@/public/icons/Sedan";
+import Maastur from "@/public/icons/Maastur";
+import Hatch from "@/public/icons/Hatch";
+import Coupe from "@/public/icons/Coupe";
+import Other from "@/public/icons/Other";
 
 const carBrands = [
   "KÕIK",
@@ -53,26 +60,48 @@ const carBrands = [
     name: "Sedaanid",
     img: "/icons/icon-sedan.svg",
   },
-  {
-    name: "SUV",
-    img: "/icons/icon-suv.svg",
-  },
-  {
-    name: "Universaalid",
-    img: "/icons/icon-variant.svg",
-  }, */
+
+ */
 
 const IconFilters = [
   {
+    name: "Luukpära",
+    imageComponent: <Hatch />,
+  },
+  {
+    name: "Sedaan",
+    imageComponent: <Sedan />,
+  },
+  {
+    name: "Universaal",
+    imageComponent: <Variant />,
+  },
+  {
+    name: "Kupee",
+    imageComponent: <Coupe />,
+  },
+  {
+    name: "SUV",
+    imageComponent: <Suv />,
+  },
+  {
+    name: "Maastur",
+    imageComponent: <Maastur />,
+  },
+  {
     name: "EV",
     imageComponent: <Tesla />,
+  },
+  {
+    name: "Muu",
+    imageComponent: <Other />,
   },
 ];
 
 function Filters() {
   return (
     <div className="flex flex-col items-center ">
-      <div className="flex justify-center flex-wrap w-2/4">
+      <div className="flex justify-center flex-wrap w-4/6">
         {carBrands.map((brand, _) => (
           <div key={_}>
             <h3 className="mx-2 uppercase text-white text-lg hover:text-aj-red transition-all cursor-pointer">
@@ -81,7 +110,7 @@ function Filters() {
           </div>
         ))}
       </div>
-      <div className="w-3/4 flex flex-row flex-wrap justify-center items-center gap-6">
+      <div className="w-6/8 flex flex-row flex-wrap justify-center items-center mt-8">
         {IconFilters.map((filter, _) => {
           return (
             <IconFilter

@@ -5,18 +5,18 @@ function IconFilter({ imageComponent, title }) {
 
   return (
     <div
-      className="flex flex-col justify-between h-42 group cursor-pointer"
+      className="flex flex-col justify-between group cursor-pointer"
       onMouseOver={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
       <div className="h-[50px] flex flex-col justify-end">
         {React.cloneElement(imageComponent, {
           color: isHover ? "red" : "white",
-          width: "24",
-          height: "24",
+          with: "100px",
+          height: "100px",
         })}
       </div>
-      <h3 className="text-white group-hover:text-aj-red text-center">
+      <h3 className="text-white group-hover:text-aj-red text-center transition-all duration-200 uppercase">
         {title}
       </h3>
     </div>
