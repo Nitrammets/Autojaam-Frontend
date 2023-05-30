@@ -23,6 +23,7 @@ export async function getStaticProps() {
       price: "30000",
       body: ["0", "1"],
       image: "/GridExamples/308.png",
+      slug: "/",
     },
     {
       id: 2,
@@ -31,6 +32,7 @@ export async function getStaticProps() {
       price: "30000",
       body: ["2"],
       image: "/GridExamples/A6.png",
+      slug: "/",
     },
     {
       id: 3,
@@ -39,6 +41,7 @@ export async function getStaticProps() {
       price: "30000",
       body: ["4"],
       image: "/GridExamples/AtecaC.png",
+      slug: "/",
     },
     {
       id: 4,
@@ -47,6 +50,7 @@ export async function getStaticProps() {
       price: "30000",
       body: ["0"],
       image: "/GridExamples/Born.png",
+      slug: "/",
     },
     {
       id: 5,
@@ -55,6 +59,7 @@ export async function getStaticProps() {
       price: "30000",
       body: ["4"],
       image: "/GridExamples/Cayenne.png",
+      slug: "/",
     },
     {
       id: 6,
@@ -63,6 +68,7 @@ export async function getStaticProps() {
       price: "30000",
       body: ["5"],
       image: "/GridExamples/Defender.png",
+      slug: "/",
     },
     {
       id: 7,
@@ -71,6 +77,7 @@ export async function getStaticProps() {
       price: "30000",
       body: ["6"],
       image: "/GridExamples/Multivan.png",
+      slug: "/",
     },
     {
       id: 8,
@@ -79,6 +86,7 @@ export async function getStaticProps() {
       price: "30000",
       body: ["2"],
       image: "/GridExamples/Passat.png",
+      slug: "/",
     },
     {
       id: 9,
@@ -87,6 +95,7 @@ export async function getStaticProps() {
       price: "30000",
       body: ["3"],
       image: "/GridExamples/Taycan.png",
+      slug: "/",
     },
   ];
 
