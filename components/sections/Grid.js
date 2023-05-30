@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import Filters from "./Filters";
-function Grid() {
+import { AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+
+function Grid({ posts }) {
+  const [filteredPosts, setFilteredPosts] = useState(posts);
+
   return (
-    <div className="flex justify-center mt-6">
-      <Filters />
+    <div className="flex justify-center mt-6 flex-col items-center">
+      <Filters
+        posts={posts}
+        filteredPosts={filteredPosts}
+        setFilteredPosts={setFilteredPosts}
+      />
+      <div className="grid grid-cols-3 gap-2 mt-20 w-4/6 min-h-screen">
+        <AnimatePresence>
+          {filteredPosts?.map((post) => {
+            return (
+              <motion.div layout="position" key={post.id}>
+                <img src={post.image} />
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
+      </div>
     </div>
   );
 }

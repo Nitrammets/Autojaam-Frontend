@@ -21,6 +21,10 @@
   }
 }
 
+html{
+  overflow-x:hidden;
+}
+
 body {
   background-image: url("/bg.svg");
   background-size: cover;

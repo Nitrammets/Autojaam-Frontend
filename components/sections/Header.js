@@ -16,7 +16,7 @@ function Header() {
           </div>
 
           {/* Menu */}
-          <nav className="flex flex-row items-center justify-start ml-auto gap-10 text-2xl font-sans font-light">
+          <nav className="flex flex-row items-center justify-start ml-auto gap-10 text-md md:text-lg lg:text-xl font-sans font-light">
             <Link
               href={"/"}
               className={` uppercase hover:text-aj-red transition-all ${
