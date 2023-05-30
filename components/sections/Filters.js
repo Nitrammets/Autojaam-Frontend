@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import IconFilter from "./IconFilter";
-import Tesla from "@/public/icons/Tesla";
+import { FilterContext } from "@/Context/FilterContext";
+
+/* Icon types. */
 import Variant from "@/public/icons/Variant";
 import Suv from "@/public/icons/Suv";
 import Sedan from "@/public/icons/Sedan";
@@ -179,34 +181,8 @@ const IconFilters = [
 ];
 
 function Filters({ posts, filterPosts, setFilteredPosts }) {
-  const [brandFilter, setBrandFilter] = useState("kõik");
-  const [bodyFilter, setBodyFilter] = useState([]);
-
-  useEffect(() => {
-    let filtered = posts;
-
-    if (brandFilter !== "kõik") {
-      filtered = filtered.filter(
-        (post) => post.manufacturer.toLowerCase() === brandFilter
-      );
-    }
-
-    if (bodyFilter.length > 0) {
-      filtered = filtered.filter((post) =>
-        post.body.map(Number).some((body) => bodyFilter.includes(body))
-      );
-    }
-
-    setFilteredPosts(filtered);
-  }, [brandFilter, bodyFilter]);
-
-  const toggleBodyFilter = (value) => {
-    setBodyFilter((prevFilter) =>
-      prevFilter.includes(value)
-        ? prevFilter.filter((filter) => filter !== value)
-        : [...prevFilter, value]
-    );
-  };
+  const { brandFilter, setBrandFilter, bodyFilter, toggleBodyFilter } =
+    useContext(FilterContext);
 
   return (
     <div className="flex flex-col items-center ">

@@ -1,13 +1,16 @@
 import Image from "next/image";
 import Accordion from "@/components/sections/Accordion";
 import Grid from "@/components/sections/Grid";
+import { FilterProvider } from "@/Context/FilterContext";
 
 export default function Home({ posts }) {
   return (
     <main className="flex flex-col items-center">
       <Accordion />
       <div className="">
-        <Grid posts={posts} />
+        <FilterProvider posts={posts}>
+          <Grid />
+        </FilterProvider>
       </div>
     </main>
   );
