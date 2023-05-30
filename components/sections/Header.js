@@ -1,8 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function Header() {
+  const router = useRouter();
+
   return (
     <>
       <header className="w-screen flex flex-row h-[130px] justify-center bg-aj-black">
@@ -13,10 +16,12 @@ function Header() {
           </div>
 
           {/* Menu */}
-          <nav className="flex flex-row items-center justify-start ml-auto gap-10 text-2xl font-sans font-extralight">
+          <nav className="flex flex-row items-center justify-start ml-auto gap-10 text-2xl font-sans font-light">
             <Link
               href={"/"}
-              className="text-white uppercase hover:text-aj-red transition-all"
+              className={` uppercase hover:text-aj-red transition-all ${
+                router.pathname === "/" ? "text-aj-red" : "text-white"
+              }`}
             >
               Proovisõidud
             </Link>
