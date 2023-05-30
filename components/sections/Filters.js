@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import IconFilter from "./IconFilter";
 import { FilterContext } from "@/Context/FilterContext";
+import SelectedFilters from "./SelectedFilters";
 
 /* Icon types. */
 import Variant from "@/public/icons/Variant";
@@ -181,17 +182,22 @@ const IconFilters = [
 ];
 
 function Filters({ posts, filterPosts, setFilteredPosts }) {
-  const { brandFilter, setBrandFilter, bodyFilter, toggleBodyFilter } =
-    useContext(FilterContext);
+  const {
+    brandFilter,
+    setBrandFilter,
+    bodyFilter,
+    toggleBodyFilter,
+    toggleBrandFilter,
+  } = useContext(FilterContext);
 
   return (
-    <div className="flex flex-col items-center ">
-      <div className="flex justify-center flex-wrap w-4/6">
+    <div className="flex flex-col items-center w-5/6">
+      <div className="flex justify-center flex-wrap w-5/6">
         {carBrands.map((brand, _) => (
-          <div key={_} onClick={() => setBrandFilter(brand.value)}>
+          <div key={_} onClick={() => toggleBrandFilter(brand.value)}>
             <h3
               className={`mx-2 uppercase text-lg hover:text-aj-red transition-all cursor-pointer 
-      ${brandFilter === brand.value ? "text-aj-red" : "text-white"}`}
+      ${brandFilter.includes(brand.value) ? "text-aj-red" : "text-white"}`}
             >
               {brand.name}
             </h3>
@@ -212,6 +218,7 @@ function Filters({ posts, filterPosts, setFilteredPosts }) {
           );
         })}
       </div>
+      <SelectedFilters />
     </div>
   );
 }
