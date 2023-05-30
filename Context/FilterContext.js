@@ -7,12 +7,18 @@ export function FilterProvider({ children, posts }) {
   const [bodyFilter, setBodyFilter] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState(posts);
 
-  const toggleBodyFilter = (value) => {
-    setBodyFilter((prevFilter) =>
-      prevFilter.includes(value)
-        ? prevFilter.filter((filter) => filter !== value)
-        : [...prevFilter, value]
-    );
+  const toggleBodyFilter = (filterObj) => {
+    setBodyFilter((prevFilter) => {
+      const isFilterPresent = prevFilter.some(
+        (filter) => filter.value === filterObj.value
+      );
+
+      if (isFilterPresent) {
+        return prevFilter.filter((filter) => filter.value !== filterObj.value);
+      } else {
+        return [...prevFilter, filterObj];
+      }
+    });
   };
 
   const toggleBrandFilter = (brand) => {
@@ -48,7 +54,11 @@ export function FilterProvider({ children, posts }) {
 
     if (bodyFilter.length > 0) {
       filtered = filtered.filter((post) =>
-        post.body.map(Number).some((body) => bodyFilter.includes(body))
+        post.body
+          .map(Number)
+          .some((body) =>
+            bodyFilter.map((filter) => filter.value).includes(body)
+          )
       );
     }
 

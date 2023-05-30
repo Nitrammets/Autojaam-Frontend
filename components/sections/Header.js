@@ -8,7 +8,7 @@ function Header() {
 
   return (
     <>
-      <header className="w-screen flex flex-row h-[130px] justify-center bg-aj-black">
+      <header className="w-screen flex flex-row h-[130px] justify-center bg-aj-dark-black">
         <div className="h-full w-3/4 flex flex-row items-center">
           {/* Logo */}
           <div className="relative w-[265px] h-[64px] min-w-[265px]">

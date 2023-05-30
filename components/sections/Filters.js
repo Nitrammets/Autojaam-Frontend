@@ -211,9 +211,11 @@ function Filters({ posts, filterPosts, setFilteredPosts }) {
               imageComponent={filter.imageComponent}
               title={filter.name}
               key={_}
-              isActive={bodyFilter.includes(filter.value)}
+              isActive={bodyFilter
+                .map((filter) => filter.value)
+                .includes(filter.value)}
               toggleBodyFilter={toggleBodyFilter}
-              value={filter.value}
+              filter={filter}
             />
           );
         })}

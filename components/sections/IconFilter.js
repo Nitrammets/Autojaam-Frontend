@@ -5,7 +5,7 @@ function IconFilter({
   title,
   isActive,
   toggleBodyFilter,
-  value,
+  filter,
 }) {
   const [isHover, setIsHover] = useState(false);
 
@@ -14,7 +14,7 @@ function IconFilter({
       className="flex flex-col justify-between group cursor-pointer"
       onMouseOver={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
-      onClick={() => toggleBodyFilter(value)}
+      onClick={() => toggleBodyFilter(filter)}
     >
       <div className="h-[50px] flex flex-col justify-end">
         {React.cloneElement(imageComponent, {
@@ -28,7 +28,7 @@ function IconFilter({
           isActive ? "text-aj-red" : "text-white"
         } group-hover:text-aj-red`}
       >
-        {title}
+        {filter.name}
       </h3>
     </div>
   );

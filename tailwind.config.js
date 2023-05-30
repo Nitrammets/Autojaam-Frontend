@@ -11,6 +11,7 @@ module.exports = {
       colors: {
         "aj-black": "#1B1B1B",
         "aj-red": "#FB0000",
+        "aj-dark-black": "#111111",
       },
       fontFamily: {
         sans: ["Work Sans", "sans-serif"],

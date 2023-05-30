@@ -33,9 +33,13 @@ function SelectedFilters() {
           }
         })}
         {bodyFilter.map((body) => (
-          <div key={body}>
-            {body}
-            <button onClick={() => removeBodyFilter(body)}>Remove</button>
+          <div
+            key={body}
+            className="border rounded-lg p-2 flex flex-row items-center cursor-pointer"
+            onClick={() => removeBodyFilter(body)}
+          >
+            {body.name}
+            <CiCircleRemove className="ml-2" />
           </div>
         ))}
       </div>
