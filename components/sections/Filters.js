@@ -68,11 +68,8 @@ function Filters() {
     <div className="flex flex-col items-center ">
       <div className="flex justify-center flex-wrap w-2/4">
         {carBrands.map((brand, _) => (
-          <div>
-            <h3
-              className="mx-2 uppercase text-white text-lg hover:text-aj-red transition-all cursor-pointer"
-              key={_}
-            >
+          <div key={_}>
+            <h3 className="mx-2 uppercase text-white text-lg hover:text-aj-red transition-all cursor-pointer">
               {brand}
             </h3>
           </div>
