@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-function IconFilter({ img, title }) {
+function IconFilter({ imageComponent, title }) {
+  const [isHover, setIsHover] = useState(false);
+
   return (
-    <div className="flex flex-col justify-between h-42 group cursor-pointer">
-      <img src={img} alt={title} className="w-32 h-32 " />
-      <h3 className="text-white group-hover:text-aj-red">{title}</h3>
-      <style jsx>{``}</style>
+    <div
+      className="flex flex-col justify-between h-42 group cursor-pointer"
+      onMouseOver={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
+      <div className="h-[50px] flex flex-col justify-end">
+        {React.cloneElement(imageComponent, {
+          color: isHover ? "red" : "white",
+          width: "24",
+          height: "24",
+        })}
+      </div>
+      <h3 className="text-white group-hover:text-aj-red text-center">
+        {title}
+      </h3>
     </div>
   );
 }

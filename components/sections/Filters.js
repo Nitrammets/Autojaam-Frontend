@@ -1,5 +1,6 @@
 import React from "react";
 import IconFilter from "./IconFilter";
+import Tesla from "@/public/Tesla";
 
 const carBrands = [
   "KÕIK",
@@ -36,30 +37,35 @@ const carBrands = [
   "Volvo",
 ];
 
-const IconFilters = [
-  {
+/*   {
     name: "Maasturid",
-    img: "/icons/Maasturid.svg",
+    img: "/icons/icon-maastur.svg",
   },
   {
     name: "Kupeed",
-    img: "/icons/Kupeed.svg",
+    img: "/icons/icon-kupee.svg",
   },
   {
     name: "Luukpärad",
-    img: "/icons/Luukparad.svg",
+    img: "/icons/icon-hatch.svg",
   },
   {
     name: "Sedaanid",
-    img: "/icons/Sedaanid.svg",
+    img: "/icons/icon-sedan.svg",
   },
   {
     name: "SUV",
-    img: "/icons/SUV.svg",
+    img: "/icons/icon-suv.svg",
   },
   {
     name: "Universaalid",
-    img: "/icons/Universaalid.svg",
+    img: "/icons/icon-variant.svg",
+  }, */
+
+const IconFilters = [
+  {
+    name: "EV",
+    imageComponent: <Tesla />,
   },
 ];
 
@@ -75,9 +81,15 @@ function Filters() {
           </div>
         ))}
       </div>
-      <div className="w-3/4 flex flex-row flex-wrap justify-center items-center gap-3">
+      <div className="w-3/4 flex flex-row flex-wrap justify-center items-center gap-6">
         {IconFilters.map((filter, _) => {
-          return <IconFilter img={filter.img} title={filter.name} key={_} />;
+          return (
+            <IconFilter
+              imageComponent={filter.imageComponent}
+              title={filter.name}
+              key={_}
+            />
+          );
         })}
       </div>
     </div>
