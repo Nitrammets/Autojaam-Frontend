@@ -12,7 +12,7 @@ function Grid() {
   return (
     <div className="flex justify-center mt-6 flex-col items-center">
       <Filters />
-      <div className="grid grid-cols-3 gap-2 mt-20 w-4/6 min-h-screen">
+      <div className="grid grid-cols-3 gap-2 mt-12 w-4/6 min-h-screen">
         <AnimatePresence>
           {filteredPosts?.map((post) => {
             return (

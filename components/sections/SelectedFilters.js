@@ -16,8 +16,7 @@ function SelectedFilters() {
 
   return (
     <div className="text-white flex flex-row items-center w-5/6 h-12 mt-4">
-      <h2 className="mr-4">Aktiveeritud filtrid:</h2>
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row gap-2 w-full justify-center">
         {brandFilter.map((brand) => {
           if (brand !== "kõik") {
             return (

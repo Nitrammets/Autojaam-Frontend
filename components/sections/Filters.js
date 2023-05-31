@@ -28,6 +28,7 @@ function Filters({ posts, filterPosts, setFilteredPosts }) {
     setSortingOrder,
     sortingOption,
     sortingOrder,
+    toggleSortingOrder,
   } = useContext(FilterContext);
 
   return (
@@ -61,8 +62,7 @@ function Filters({ posts, filterPosts, setFilteredPosts }) {
         })}
         <div className="flex flex-row">
           <div className="h-18 border border-white mx-4"></div>
-
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center pr-4">
             <span
               onClick={() => setSortingOption("price")}
               className={`${
@@ -88,21 +88,22 @@ function Filters({ posts, filterPosts, setFilteredPosts }) {
               <BiCalendar size={"24"} />
             </span>
           </div>
-          <div className="flex flex-col justify-center items-center">
+          <div
+            onClick={() => toggleSortingOrder()}
+            className="flex flex-col justify-center items-center cursor-pointer "
+          >
             <div className="flex flex-row items-center justify-center">
               <span
-                onClick={() => setSortingOrder("asc")}
                 className={`${
                   sortingOrder == "asc" ? "text-aj-red" : "text-white"
-                } flex justify-center items-center hover:text-aj-red  transition-all`}
+                } flex justify-center items-center `}
               >
                 <BsArrowUp size={"50"} />
               </span>
               <span
-                onClick={() => setSortingOrder("desc")}
                 className={`${
                   sortingOrder == "desc" ? "text-aj-red" : "text-white"
-                } flex justify-center items-center -translate-x-4 hover:text-aj-red transition-all`}
+                } flex justify-center items-center -translate-x-4 `}
               >
                 <BsArrowDown size={"50"} />
               </span>

@@ -7,7 +7,7 @@ export function FilterProvider({ children, posts }) {
   const [bodyFilter, setBodyFilter] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState(posts);
 
-  const [sortingOption, setSortingOption] = useState("date");
+  const [sortingOption, setSortingOption] = useState("name");
   const [sortingOrder, setSortingOrder] = useState("asc");
 
   const sortPosts = (posts) => {
