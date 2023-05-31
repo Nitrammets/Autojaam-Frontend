@@ -2,6 +2,11 @@ import React, { useState, useEffect, useContext } from "react";
 import IconFilter from "./IconFilter";
 import { FilterContext } from "@/Context/FilterContext";
 import SelectedFilters from "./SelectedFilters";
+import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
+import { BsArrowDown, BsArrowUp } from "react-icons/bs";
+import { BiCalendar, BiEuro } from "react-icons/bi";
+import { MdAbc } from "react-icons/md";
+import { RiMoneyEuroBoxLine } from "react-icons/ri";
 
 /* Icon types. */
 import Variant from "@/public/icons/Variant";
@@ -11,6 +16,109 @@ import Maastur from "@/public/icons/Maastur";
 import Hatch from "@/public/icons/Hatch";
 import Coupe from "@/public/icons/Coupe";
 import Other from "@/public/icons/Other";
+
+function Filters({ posts, filterPosts, setFilteredPosts }) {
+  const {
+    brandFilter,
+    setBrandFilter,
+    bodyFilter,
+    toggleBodyFilter,
+    toggleBrandFilter,
+    setSortingOption,
+    setSortingOrder,
+    sortingOption,
+    sortingOrder,
+  } = useContext(FilterContext);
+
+  return (
+    <div className="flex flex-col items-center w-5/6">
+      <div className="flex justify-center flex-wrap w-5/6">
+        {carBrands.map((brand, _) => (
+          <div key={_} onClick={() => toggleBrandFilter(brand.value)}>
+            <h3
+              className={`mx-2 uppercase text-lg hover:text-aj-red transition-all cursor-pointer 
+      ${brandFilter.includes(brand.value) ? "text-aj-red" : "text-white"}`}
+            >
+              {brand.name}
+            </h3>
+          </div>
+        ))}
+      </div>
+      <div className="w-6/8 flex flex-row flex-wrap justify-center items-center mt-8">
+        {IconFilters.map((filter, _) => {
+          return (
+            <IconFilter
+              imageComponent={filter.imageComponent}
+              title={filter.name}
+              key={_}
+              isActive={bodyFilter
+                .map((filter) => filter.value)
+                .includes(filter.value)}
+              toggleBodyFilter={toggleBodyFilter}
+              filter={filter}
+            />
+          );
+        })}
+        <div className="flex flex-row">
+          <div className="h-18 border border-white mx-4"></div>
+
+          <div className="flex flex-col items-center">
+            <span
+              onClick={() => setSortingOption("price")}
+              className={`${
+                sortingOption == "price" ? "text-aj-red" : "text-white"
+              } hover:text-aj-red  transition-all`}
+            >
+              <BiEuro size={"24"} />
+            </span>
+            <span
+              onClick={() => setSortingOption("name")}
+              className={`${
+                sortingOption == "name" ? "text-aj-red" : "text-white"
+              } hover:text-aj-red  transition-all`}
+            >
+              <MdAbc size={"36"} />
+            </span>
+            <span
+              onClick={() => setSortingOption("date")}
+              className={`${
+                sortingOption == "date" ? "text-aj-red" : "text-white"
+              } hover:text-aj-red  transition-all`}
+            >
+              <BiCalendar size={"24"} />
+            </span>
+          </div>
+          <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-row items-center justify-center">
+              <span
+                onClick={() => setSortingOrder("asc")}
+                className={`${
+                  sortingOrder == "asc" ? "text-aj-red" : "text-white"
+                } flex justify-center items-center hover:text-aj-red  transition-all`}
+              >
+                <BsArrowUp size={"50"} />
+              </span>
+              <span
+                onClick={() => setSortingOrder("desc")}
+                className={`${
+                  sortingOrder == "desc" ? "text-aj-red" : "text-white"
+                } flex justify-center items-center -translate-x-4 hover:text-aj-red transition-all`}
+              >
+                <BsArrowDown size={"50"} />
+              </span>
+            </div>
+            <h1 className="text-white -ml-[15px]">
+              {sortingOrder == "desc" ? "Kahanevas" : "Kasvavas"}
+            </h1>
+          </div>
+        </div>
+      </div>
+      <SelectedFilters />
+    </div>
+  );
+}
+
+export default Filters;
 
 const carBrands = [
   {
@@ -180,100 +288,3 @@ const IconFilters = [
     value: 6,
   },
 ];
-
-function Filters({ posts, filterPosts, setFilteredPosts }) {
-  const {
-    brandFilter,
-    setBrandFilter,
-    bodyFilter,
-    toggleBodyFilter,
-    toggleBrandFilter,
-    setSortingOption,
-    setSortingOrder,
-    sortingOption,
-    sortingOrder,
-  } = useContext(FilterContext);
-
-  return (
-    <div className="flex flex-col items-center w-5/6">
-      <div className="flex justify-center flex-wrap w-5/6">
-        {carBrands.map((brand, _) => (
-          <div key={_} onClick={() => toggleBrandFilter(brand.value)}>
-            <h3
-              className={`mx-2 uppercase text-lg hover:text-aj-red transition-all cursor-pointer 
-      ${brandFilter.includes(brand.value) ? "text-aj-red" : "text-white"}`}
-            >
-              {brand.name}
-            </h3>
-          </div>
-        ))}
-      </div>
-      <div className="w-6/8 flex flex-row flex-wrap justify-center items-center mt-8">
-        {IconFilters.map((filter, _) => {
-          return (
-            <IconFilter
-              imageComponent={filter.imageComponent}
-              title={filter.name}
-              key={_}
-              isActive={bodyFilter
-                .map((filter) => filter.value)
-                .includes(filter.value)}
-              toggleBodyFilter={toggleBodyFilter}
-              filter={filter}
-            />
-          );
-        })}
-      </div>
-      <SelectedFilters />
-      <div>
-        <span
-          onClick={() => setSortingOption("price")}
-          className={`${
-            sortingOption == "price" ? "text-aj-red" : "text-white"
-          } `}
-        >
-          Price
-        </span>
-      </div>
-      <div>
-        <span
-          onClick={() => setSortingOption("name")}
-          className={`${
-            sortingOption == "name" ? "text-aj-red" : "text-white"
-          } `}
-        >
-          Name
-        </span>
-      </div>
-      <div>
-        <span
-          onClick={() => setSortingOption("date")}
-          className={`${
-            sortingOption == "date" ? "text-aj-red" : "text-white"
-          } `}
-        >
-          Date
-        </span>
-      </div>
-      <div className="text-white">
-        <span
-          onClick={() => setSortingOrder("asc")}
-          className={`${sortingOrder == "asc" ? "text-aj-red" : "text-white"} `}
-        >
-          ASC
-        </span>
-        {" | "}
-        <span
-          onClick={() => setSortingOrder("desc")}
-          className={`${
-            sortingOrder == "desc" ? "text-aj-red" : "text-white"
-          } `}
-        >
-          DESC
-        </span>
-      </div>
-    </div>
-  );
-}
-
-export default Filters;
