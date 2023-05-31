@@ -108,7 +108,7 @@ function Filters({ posts, filterPosts, setFilteredPosts }) {
                 <BsArrowDown size={"50"} />
               </span>
             </div>
-            <h1 className="text-white -ml-[15px]">
+            <h1 className="text-white -ml-[15px] select-none">
               {sortingOrder == "desc" ? "Kahanevas" : "Kasvavas"}
             </h1>
           </div>
