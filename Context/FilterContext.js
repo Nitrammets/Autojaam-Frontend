@@ -10,6 +10,36 @@ export function FilterProvider({ children, posts }) {
   const [sortingOption, setSortingOption] = useState("date");
   const [sortingOrder, setSortingOrder] = useState("asc");
 
+  const sortPosts = (posts) => {
+    let sortedPosts;
+    switch (sortingOption) {
+      case "date":
+        sortedPosts = [...posts].sort(
+          (a, b) => new Date(a.date) - new Date(b.date)
+        );
+
+        break;
+      case "name":
+        sortedPosts = [...posts].sort((a, b) => a.model.localeCompare(b.model));
+        break;
+      case "price":
+        sortedPosts = [...posts].sort((a, b) => a.price - b.price);
+        break;
+      default:
+        return posts;
+    }
+
+    if (sortingOrder === "desc") {
+      sortedPosts.reverse();
+    }
+
+    return sortedPosts;
+  };
+
+  const toggleSortingOrder = () => {
+    setSortingOrder((prevOrder) => (prevOrder === "asc" ? "desc" : "asc"));
+  };
+
   useEffect(() => {
     let filtered = posts;
 
@@ -29,8 +59,9 @@ export function FilterProvider({ children, posts }) {
       );
     }
 
-    setFilteredPosts(filtered);
-  }, [brandFilter, bodyFilter]);
+    let sorted = sortPosts(filtered);
+    setFilteredPosts(sorted);
+  }, [brandFilter, bodyFilter, sortingOption, sortingOrder]);
 
   const toggleBodyFilter = (filterObj) => {
     setBodyFilter((prevFilter) => {
@@ -77,6 +108,12 @@ export function FilterProvider({ children, posts }) {
         bodyFilter,
         toggleBodyFilter,
         toggleBrandFilter,
+        sortingOption,
+        setSortingOption,
+        sortingOrder,
+        toggleSortingOrder,
+        sortPosts,
+        setSortingOrder,
       }}
     >
       {children}

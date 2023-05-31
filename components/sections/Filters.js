@@ -188,6 +188,10 @@ function Filters({ posts, filterPosts, setFilteredPosts }) {
     bodyFilter,
     toggleBodyFilter,
     toggleBrandFilter,
+    setSortingOption,
+    setSortingOrder,
+    sortingOption,
+    sortingOrder,
   } = useContext(FilterContext);
 
   return (
@@ -221,6 +225,53 @@ function Filters({ posts, filterPosts, setFilteredPosts }) {
         })}
       </div>
       <SelectedFilters />
+      <div>
+        <span
+          onClick={() => setSortingOption("price")}
+          className={`${
+            sortingOption == "price" ? "text-aj-red" : "text-white"
+          } `}
+        >
+          Price
+        </span>
+      </div>
+      <div>
+        <span
+          onClick={() => setSortingOption("name")}
+          className={`${
+            sortingOption == "name" ? "text-aj-red" : "text-white"
+          } `}
+        >
+          Name
+        </span>
+      </div>
+      <div>
+        <span
+          onClick={() => setSortingOption("date")}
+          className={`${
+            sortingOption == "date" ? "text-aj-red" : "text-white"
+          } `}
+        >
+          Date
+        </span>
+      </div>
+      <div className="text-white">
+        <span
+          onClick={() => setSortingOrder("asc")}
+          className={`${sortingOrder == "asc" ? "text-aj-red" : "text-white"} `}
+        >
+          ASC
+        </span>
+        {" | "}
+        <span
+          onClick={() => setSortingOrder("desc")}
+          className={`${
+            sortingOrder == "desc" ? "text-aj-red" : "text-white"
+          } `}
+        >
+          DESC
+        </span>
+      </div>
     </div>
   );
 }
