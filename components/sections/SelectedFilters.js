@@ -3,7 +3,7 @@ import { FilterContext } from "@/Context/FilterContext";
 import { CiCircleRemove } from "react-icons/ci";
 
 function SelectedFilters() {
-  const { brandFilter, removeBrandFilter, bodyFilter, removeBodyFilter } =
+  const { brandFilter, bodyFilter, toggleBodyFilter, toggleBrandFilter } =
     useContext(FilterContext);
 
   function toTitleCase(str) {
@@ -24,7 +24,7 @@ function SelectedFilters() {
               <div
                 key={brand}
                 className="border rounded-lg p-2 flex flex-row items-center cursor-pointer"
-                onClick={() => removeBrandFilter(brand)}
+                onClick={() => toggleBrandFilter(brand)}
               >
                 {toTitleCase(brand)}
                 <CiCircleRemove className="ml-2" />
@@ -36,7 +36,7 @@ function SelectedFilters() {
           <div
             key={body}
             className="border rounded-lg p-2 flex flex-row items-center cursor-pointer"
-            onClick={() => removeBodyFilter(body)}
+            onClick={() => toggleBodyFilter(body)}
           >
             {body.name}
             <CiCircleRemove className="ml-2" />

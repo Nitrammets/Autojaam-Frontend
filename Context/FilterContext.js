@@ -7,6 +7,31 @@ export function FilterProvider({ children, posts }) {
   const [bodyFilter, setBodyFilter] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState(posts);
 
+  const [sortingOption, setSortingOption] = useState("date");
+  const [sortingOrder, setSortingOrder] = useState("asc");
+
+  useEffect(() => {
+    let filtered = posts;
+
+    if (brandFilter.length > 0 && !brandFilter.includes("kõik")) {
+      filtered = filtered.filter((post) =>
+        brandFilter.includes(post.manufacturer.toLowerCase())
+      );
+    }
+
+    if (bodyFilter.length > 0) {
+      filtered = filtered.filter((post) =>
+        post.body
+          .map(Number)
+          .some((body) =>
+            bodyFilter.map((filter) => filter.value).includes(body)
+          )
+      );
+    }
+
+    setFilteredPosts(filtered);
+  }, [brandFilter, bodyFilter]);
+
   const toggleBodyFilter = (filterObj) => {
     setBodyFilter((prevFilter) => {
       const isFilterPresent = prevFilter.some(
@@ -43,40 +68,6 @@ export function FilterProvider({ children, posts }) {
     });
   };
 
-  useEffect(() => {
-    let filtered = posts;
-
-    if (brandFilter.length > 0 && !brandFilter.includes("kõik")) {
-      filtered = filtered.filter((post) =>
-        brandFilter.includes(post.manufacturer.toLowerCase())
-      );
-    }
-
-    if (bodyFilter.length > 0) {
-      filtered = filtered.filter((post) =>
-        post.body
-          .map(Number)
-          .some((body) =>
-            bodyFilter.map((filter) => filter.value).includes(body)
-          )
-      );
-    }
-
-    setFilteredPosts(filtered);
-  }, [brandFilter, bodyFilter]);
-
-  const removeBrandFilter = (brand) => {
-    setBrandFilter((prevFilter) => {
-      return prevFilter.filter((filter) => filter !== brand);
-    });
-  };
-
-  const removeBodyFilter = (value) => {
-    setBodyFilter((prevFilter) => {
-      return prevFilter.filter((filter) => filter !== value);
-    });
-  };
-
   return (
     <FilterContext.Provider
       value={{
@@ -86,8 +77,6 @@ export function FilterProvider({ children, posts }) {
         bodyFilter,
         toggleBodyFilter,
         toggleBrandFilter,
-        removeBrandFilter,
-        removeBodyFilter,
       }}
     >
       {children}
