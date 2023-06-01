@@ -50,5 +50,10 @@ body {
 }
 
 
+.indicator.active{
+  background-color: black;
+}
+
+
 
 
