@@ -4,6 +4,7 @@ import { PortableText } from "@portabletext/react";
 import Paragraph from "@/components/PortableText/Paragraph";
 import DividerHeader from "@/components/Utility/DividerHeader";
 import SlideShow from "@/components/Utility/SlideShow";
+import Image from "next/image";
 
 function Post({ post }) {
   if (!post || !post.cover_img) {
@@ -53,7 +54,7 @@ function Post({ post }) {
           <div className="w-1/2 text-justify">
             <Paragraph value={post.exterior_content && post.exterior_content} />
           </div>
-          <div className="w-1/2 ml-4 sticky h-full top-16 lg:top-0 xl:top-10 ">
+          <div className="w-1/2 ml-4 sticky h-full top-16 lg:top-0 xl:top-2 ">
             <SlideShow images={post.exterior_slides} />
           </div>
         </div>
@@ -62,7 +63,7 @@ function Post({ post }) {
           <div className="w-1/2 text-justify">
             <Paragraph value={post.interior_content && post.interior_content} />
           </div>
-          <div className="w-1/2 mr-4 sticky h-full top-16 lg:top-0 xl:top-10">
+          <div className="w-1/2 mr-4 sticky h-full top-16 lg:top-0 xl:top-2">
             <SlideShow images={post.exterior_slides} />
           </div>
         </div>
@@ -71,12 +72,52 @@ function Post({ post }) {
           <div className="w-1/2 text-justify">
             <Paragraph value={post.driving_content && post.driving_content} />
           </div>
-          <div className="w-1/2 ml-4 sticky h-full lg:top-0 xl:top-10">
+          <div className="w-1/2 ml-4 sticky h-full lg:top-0 xl:top-2">
             <SlideShow images={post.driving_slides} />
           </div>
         </div>
         <div className="mt-12">
           <SlideShow images={post.gallery_slides} />
+        </div>
+      </div>
+      <div
+        className="h-[60vh] mt-12 flex justify-center items-center"
+        style={{
+          backgroundImage: `url(${post.conclusion_img})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="text-white lg:w-10/12 2xl:w-8/12 sm:w-8/12 text-center text-xl font-semibold">
+          <DividerHeader title={"Kellele?"} />
+          <Paragraph value={post.conclusion_content} />
+        </div>
+      </div>
+      <div className="lg:w-10/12 2xl:w-8/12 sm:w-8/12 flex-col items-start mx-auto h-[calc(100vh-300px)]">
+        <DividerHeader title={"Auto andmed"} />
+        <div className="h-full flex flex-row gap-5">
+          <div className="h-full w-1/2 relative aspect-w-1 aspect-h-2 ">
+            <Image src={post.stats_img} fill className="object-contain" />
+          </div>
+          <div className="flex flex-col justify-center items-center w-1/2 text-3xl text-center">
+            <div>
+              <h3>Hind alates: {post.price_beginning + "€"}</h3>
+            </div>
+            <div className="py-2"></div>
+            <div className="gap-2 flex flex-col">
+              <h2>Testitud mudeli info:</h2>
+              <h3>{post.price_tested}€</h3>
+              <h3>{post.fuel}</h3>
+              <h3>{post.engine}</h3>
+              <h3>{post.power}kW</h3>
+              <h3>{post.fuel_consumption}l/100km</h3>
+              <h3>{post.drivetrain}</h3>
+              <h3>{post.gearbox}</h3>
+              <h3>Max {post.top_speed} km/h</h3>
+              <h3>0-100 km/h: {post.acceleration} sec</h3>
+            </div>
+          </div>
         </div>
       </div>
     </div>
