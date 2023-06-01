@@ -19,7 +19,7 @@ function Post({ post }) {
       <div
         className="h-screen w-screen"
         style={{
-          backgroundImage: `url(${post.cover_img})`,
+          backgroundImage: `url(${post.cover_img && post.cover_img})`,
           backgroundPosition: "50%",
           backgroundSize: "cover",
         }}
@@ -27,7 +27,7 @@ function Post({ post }) {
       <div className="w-3/4 mx-auto">
         <div className="text-lg">
           <div className="text-black text-center mt-12">
-            <PortableText value={post.intro} />
+            <PortableText value={post.intro && post.intro} />
           </div>
         </div>
       </div>
