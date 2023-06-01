@@ -3,6 +3,9 @@ import { getAllSlugs, getPostBySlug } from "@/sanity";
 import { PortableText } from "@portabletext/react";
 
 function Post({ post }) {
+  if (!post.cover_img) {
+    return null;
+  }
   return (
     <div className="flex flex-col justify-center">
       <style>
