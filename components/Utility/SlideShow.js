@@ -59,7 +59,7 @@ function SlideShow({ images }) {
         {images.map((image, index) => (
           <div className="each-slide" key={index}>
             <div
-              className="slide-content lg:h-[1000px]"
+              className="slide-content lg:h-[900px] xl:h-[900px]"
               style={{
                 backgroundImage: `url(${image})`,
                 backgroundSize: "contain",

@@ -53,7 +53,7 @@ function Post({ post }) {
           <div className="w-1/2 text-justify">
             <Paragraph value={post.exterior_content && post.exterior_content} />
           </div>
-          <div className="w-1/2 ml-4 sticky h-full top-16 ">
+          <div className="w-1/2 ml-4 sticky h-full top-16 lg:top-0 xl:top-10 ">
             <SlideShow images={post.exterior_slides} />
           </div>
         </div>
@@ -62,7 +62,7 @@ function Post({ post }) {
           <div className="w-1/2 text-justify">
             <Paragraph value={post.interior_content && post.interior_content} />
           </div>
-          <div className="w-1/2 mr-4 sticky h-full top-16 ">
+          <div className="w-1/2 mr-4 sticky h-full top-16 lg:top-0 xl:top-10">
             <SlideShow images={post.exterior_slides} />
           </div>
         </div>
@@ -71,7 +71,7 @@ function Post({ post }) {
           <div className="w-1/2 text-justify">
             <Paragraph value={post.driving_content && post.driving_content} />
           </div>
-          <div className="w-1/2 ml-4 sticky h-full top-16 ">
+          <div className="w-1/2 ml-4 sticky h-full lg:top-0 xl:top-10">
             <SlideShow images={post.driving_slides} />
           </div>
         </div>
