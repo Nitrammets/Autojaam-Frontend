@@ -35,29 +35,48 @@ function Post({ post }) {
           backgroundSize: "cover",
         }}
       ></div>
-      <div className="w-7/12 mx-auto text-lg">
+      <div className="lg:w-10/12 2xl:w-8/12 sm:w-8/12 mx-auto text-lg">
         <div className="text-black text-center mt-12">
           <Paragraph value={post.intro ? post.intro : ""} />
         </div>
         <div className="h-[600px] mt-12 mb-12">
-          <div className="video-container">
-            <iframe
-              width="100%"
-              height="600px"
-              src={`https://www.youtube.com/embed/${post.youtube_id}`}
-              frameborder="0"
-              allowfullscreen
-            ></iframe>
-          </div>
+          <iframe
+            width="100%"
+            height="100%"
+            src={`https://www.youtube.com/embed/${post.youtube_id}`}
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
         </div>
         <DividerHeader title={"Välimus"} />
-        <div className="flex w-full flex-row gap-2 my-2">
+        <div className="flex w-full flex-row gap-2 my-2 ">
           <div className="w-1/2 text-justify">
             <Paragraph value={post.exterior_content && post.exterior_content} />
           </div>
-          <div className="w-1/2 ml-4 h-full">
+          <div className="w-1/2 ml-4 sticky h-full top-16 ">
             <SlideShow images={post.exterior_slides} />
           </div>
+        </div>
+        <DividerHeader title={"Interjöör"} />
+        <div className="flex w-full flex-row-reverse gap-2 my-2">
+          <div className="w-1/2 text-justify">
+            <Paragraph value={post.interior_content && post.interior_content} />
+          </div>
+          <div className="w-1/2 mr-4 sticky h-full top-16 ">
+            <SlideShow images={post.exterior_slides} />
+          </div>
+        </div>
+        <DividerHeader title={"Sõitmine"} />
+        <div className="flex w-full flex-row gap-2 my-2 ">
+          <div className="w-1/2 text-justify">
+            <Paragraph value={post.driving_content && post.driving_content} />
+          </div>
+          <div className="w-1/2 ml-4 sticky h-full top-16 ">
+            <SlideShow images={post.driving_slides} />
+          </div>
+        </div>
+        <div className="mt-12">
+          <SlideShow images={post.gallery_slides} />
         </div>
       </div>
     </div>
