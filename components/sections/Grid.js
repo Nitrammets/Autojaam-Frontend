@@ -16,7 +16,7 @@ function Grid() {
         <AnimatePresence>
           {filteredPosts?.map((post) => {
             return (
-              <Link href={post.slug} key={post.id}>
+              <Link href={`/posts/${post.slug}`} key={post.id}>
                 <motion.div
                   layout="position"
                   className="w-full relative"

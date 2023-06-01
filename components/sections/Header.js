@@ -6,6 +6,10 @@ import { useRouter } from "next/router";
 function Header() {
   const router = useRouter();
 
+  if (router.pathname.includes("/posts/")) {
+    return null;
+  }
+
   return (
     <>
       <header className="w-screen flex flex-row h-[130px] justify-center bg-aj-dark-black">

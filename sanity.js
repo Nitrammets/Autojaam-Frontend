@@ -30,3 +30,22 @@ export async function getPostsForGrid() {
       `);
   return posts;
 }
+
+export async function getAllSlugs() {
+  const slugs = await client.fetch(`
+  *[_type == "article"]{
+    "slug": slug.current
+  }
+  `);
+  return slugs;
+}
+
+export async function getPostBySlug(slug) {
+  const query = `*[_type == "article" && slug.current == $slug][0]`;
+
+  const params = { slug };
+
+  const post = await client.fetch(query, params);
+
+  return post;
+}
