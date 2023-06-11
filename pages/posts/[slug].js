@@ -119,6 +119,16 @@ function Post({ post }) {
             </div>
           </div>
         </div>
+        <DividerHeader title={"TÄNAME PROOVISÕIDU EEST"} />
+        <div className="w-full flex justify-center">
+          <a
+            className="font-semibold text-4xl uppercase cursor-pointer py-4"
+            href={post.dealer}
+            target="_blank"
+          >
+            {post.dealer_name}
+          </a>
+        </div>
       </div>
     </div>
   );

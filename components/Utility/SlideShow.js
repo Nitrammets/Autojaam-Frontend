@@ -51,7 +51,7 @@ function SlideShow({ images }) {
       className={`indicator w-2 h-2 rounded-full bg-gray-300 mx-[2px]`}
     ></div>
   );
-  console.log(slideHeight);
+
   return (
     <>
       <style></style>
