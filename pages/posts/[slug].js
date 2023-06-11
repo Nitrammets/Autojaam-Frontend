@@ -36,16 +36,15 @@ function Post({ post }) {
           backgroundSize: "cover",
         }}
       ></div>
-      <div className="w-11/12 lg:w-10/12 2xl:w-8/12  mx-auto text-lg">
+      <div className="w-11/12 lg:w-10/12 2xl:w-8/12 mx-auto text-lg">
         <div className="text-black text-center mt-12">
           <Paragraph value={post.intro ? post.intro : ""} />
         </div>
-        <div className="h-[600px] mt-12 mb-12">
+        <div className="h-[300px] md:h-[600px] mt-12 mb-12">
           <iframe
             width="100%"
             height="100%"
             src={`https://www.youtube.com/embed/${post.youtube_id}`}
-            frameborder="0"
             allowFullScreen
           ></iframe>
         </div>
@@ -98,7 +97,12 @@ function Post({ post }) {
         <DividerHeader title={"Auto andmed"} />
         <div className="h-full flex flex-row gap-5 flex-wrap md:flex-nowrap">
           <div className=" w-full md:w-1/2 relative aspect-w-1 aspect-h-2 flex-grow h-[calc(100vh-500px)] md:h-[calc(100vh-300px)]">
-            <Image src={post.stats_img} fill className="object-contain " />
+            <Image
+              src={post.stats_img}
+              fill
+              className="object-contain"
+              alt="specs"
+            />
           </div>
           <div className="flex flex-col justify-center items-center w-full md:w-1/2 text-3xl text-center flex-grow">
             <div>
@@ -122,7 +126,7 @@ function Post({ post }) {
         <DividerHeader title={"TÄNAME PROOVISÕIDU EEST"} />
         <div className="w-full flex justify-center">
           <a
-            className="font-semibold text-4xl uppercase cursor-pointer py-4"
+            className="font-semibold text-4xl uppercase cursor-pointer pt-4"
             href={post.dealer}
             target="_blank"
           >
