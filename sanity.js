@@ -49,3 +49,15 @@ export async function getPostBySlug(slug) {
 
   return post;
 }
+
+export async function getAccordionPosts() {
+  const posts = await client.fetch(`
+    *[_type == "article"] | order(date desc) [0..2] {
+      "slug": slug.current,
+      manufacturer,
+      model,
+      "accordion_img": accordion_img
+    }
+  `);
+  return posts;
+}

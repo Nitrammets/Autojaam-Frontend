@@ -25,7 +25,7 @@ html{
   overflow-x:hidden;
 }
 
-body {
+body, .gradient {
   background-image: linear-gradient(to right, #000 0%, #1F1F1F 33%,#1F1F1F 67%, #000 100%);
   background-size: cover;
   background-repeat: repeat-y;

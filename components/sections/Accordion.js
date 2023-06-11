@@ -16,13 +16,20 @@ const featured = [
   },
 ];
 
-function Accordion() {
+function Accordion({ posts }) {
   return (
     <div className="mt-2 w-full">
       <hr></hr>
       <div className="my-[4px] w-full h-[350px] flex overflow-hidden margin-y-[50px]">
-        {featured.map((post, _) => {
-          return <AccordionTab img={post.img} title={post.title} key={_} />;
+        {posts.map((post, _) => {
+          return (
+            <AccordionTab
+              img={post.accordion_img}
+              title={post.manufacturer + " " + post.model}
+              slug={post.slug}
+              key={_}
+            />
+          );
         })}
       </div>
       <hr></hr>

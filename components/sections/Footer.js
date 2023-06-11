@@ -7,8 +7,9 @@ import { useRouter } from "next/router";
 
 function Footer() {
   const router = useRouter();
+  const hasPostsPath = router.pathname.includes("/posts/");
   return (
-    <div className="h-80 bg-aj-black">
+    <div className={`h-80 ${hasPostsPath ? "bg-aj-black" : "gradient"}`}>
       <div className="w-11/12 lg:w-10/12 2xl:w-8/12 mx-auto text-white py-4">
         <div className="flex flex-row gap-4">
           <hr className="bg-white w-full h-[2px]"></hr>
