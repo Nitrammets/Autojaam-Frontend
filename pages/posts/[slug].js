@@ -46,7 +46,7 @@ function Post({ post }) {
             height="100%"
             src={`https://www.youtube.com/embed/${post.youtube_id}`}
             frameborder="0"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </div>
         <DividerHeader title={"Välimus"} />
@@ -89,7 +89,7 @@ function Post({ post }) {
           backgroundPosition: "center",
         }}
       >
-        <div className="text-white lg:w-10/12 2xl:w-8/12 sm:w-11/12 text-center text-xl font-semibold">
+        <div className="text-white lg:w-10/12 2xl:w-8/12 sm:w-11/12 text-center text-md md:text-lg font-semibold">
           <DividerHeader title={"Kellele?"} />
           <Paragraph value={post.conclusion_content} />
         </div>
