@@ -57,16 +57,8 @@ function SlideShow({ images }) {
       <style></style>
       <Slide {...properties} transitionDuration="300" indicators={indicators}>
         {images.map((image, index) => (
-          <div className="each-slide" key={index}>
-            <div
-              className="slide-content lg:h-[920px] xl:h-[940px]"
-              style={{
-                backgroundImage: `url(${image})`,
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-              }}
-            ></div>
+          <div className="each-slide flex justify-center" key={index}>
+            <img src={image} />
           </div>
         ))}
       </Slide>

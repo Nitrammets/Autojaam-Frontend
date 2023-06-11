@@ -22,21 +22,21 @@ function Post({ post }) {
             }
               .video-container {
                 position: relative;
-                padding-bottom: 56.25%; /* 16:9 aspect ratio (modify this value based on your aspect ratio) */
+                padding-bottom: 56.25%; 
                 height: 0;
                 overflow: hidden;
               }
             `}
       </style>
       <div
-        className="h-screen w-screen"
+        className="h-[30vh] bg-cover sm:h-[54vh] md:bg-contain sm:bg-left lg:h-screen lg:bg-cover"
         style={{
           backgroundImage: `url(${post.cover_img ? post.cover_img : ""})`,
-          backgroundPosition: "50%",
+          backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
       ></div>
-      <div className="lg:w-10/12 2xl:w-8/12 sm:w-8/12 mx-auto text-lg">
+      <div className="w-11/12 lg:w-10/12 2xl:w-8/12  mx-auto text-lg">
         <div className="text-black text-center mt-12">
           <Paragraph value={post.intro ? post.intro : ""} />
         </div>
@@ -50,29 +50,29 @@ function Post({ post }) {
           ></iframe>
         </div>
         <DividerHeader title={"Välimus"} />
-        <div className="flex w-full flex-row gap-2 my-2 ">
-          <div className="w-1/2 text-justify">
+        <div className="flex w-full flex-row gap-2 my-2 flex-wrap lg:flex-nowrap">
+          <div className="w-1/2 text-justify flex-grow">
             <Paragraph value={post.exterior_content && post.exterior_content} />
           </div>
-          <div className="w-1/2 ml-4 sticky h-full top-16 lg:top-0 xl:top-2 ">
+          <div className="w-full md:ml-4 sticky top-16 lg:top-0 xl:top-2 lg:w-1/2 md:h-full ">
             <SlideShow images={post.exterior_slides} />
           </div>
         </div>
         <DividerHeader title={"Interjöör"} />
-        <div className="flex w-full flex-row-reverse gap-2 my-2">
-          <div className="w-1/2 text-justify">
+        <div className="flex w-full flex-row-reverse gap-2 my-2 flex-wrap lg:flex-nowrap">
+          <div className="w-1/2 text-justify flex-grow">
             <Paragraph value={post.interior_content && post.interior_content} />
           </div>
-          <div className="w-1/2 mr-4 sticky h-full top-16 lg:top-0 xl:top-2">
+          <div className="w-1/2 md:mr-4 sticky top-16 lg:top-0 xl:top-2 md:h-full flex-grow">
             <SlideShow images={post.exterior_slides} />
           </div>
         </div>
         <DividerHeader title={"Sõitmine"} />
-        <div className="flex w-full flex-row gap-2 my-2 ">
-          <div className="w-1/2 text-justify">
+        <div className="flex w-full flex-row gap-2 my-2 flex-wrap lg:flex-nowrap">
+          <div className="w-1/2 text-justify flex-grow">
             <Paragraph value={post.driving_content && post.driving_content} />
           </div>
-          <div className="w-1/2 ml-4 sticky h-full lg:top-0 xl:top-2">
+          <div className="w-1/2 md:ml-4 sticky h-full lg:top-0 xl:top-2 md:h-full flex-grow">
             <SlideShow images={post.driving_slides} />
           </div>
         </div>
@@ -89,18 +89,18 @@ function Post({ post }) {
           backgroundPosition: "center",
         }}
       >
-        <div className="text-white lg:w-10/12 2xl:w-8/12 sm:w-8/12 text-center text-xl font-semibold">
+        <div className="text-white lg:w-10/12 2xl:w-8/12 sm:w-11/12 text-center text-xl font-semibold">
           <DividerHeader title={"Kellele?"} />
           <Paragraph value={post.conclusion_content} />
         </div>
       </div>
-      <div className="lg:w-10/12 2xl:w-8/12 sm:w-8/12 flex-col items-start mx-auto h-[calc(100vh-300px)]">
+      <div className="w-11/12 lg:w-10/12 2xl:w-8/12 sm:w-11/12 flex-col items-start mx-auto md:mx-auto">
         <DividerHeader title={"Auto andmed"} />
-        <div className="h-full flex flex-row gap-5">
-          <div className="h-full w-1/2 relative aspect-w-1 aspect-h-2 ">
-            <Image src={post.stats_img} fill className="object-contain" />
+        <div className="h-full flex flex-row gap-5 flex-wrap md:flex-nowrap">
+          <div className=" w-full md:w-1/2 relative aspect-w-1 aspect-h-2 flex-grow h-[calc(100vh-500px)] md:h-[calc(100vh-300px)]">
+            <Image src={post.stats_img} fill className="object-contain " />
           </div>
-          <div className="flex flex-col justify-center items-center w-1/2 text-3xl text-center">
+          <div className="flex flex-col justify-center items-center w-full md:w-1/2 text-3xl text-center flex-grow">
             <div>
               <h3>Hind alates: {post.price_beginning + "€"}</h3>
             </div>
