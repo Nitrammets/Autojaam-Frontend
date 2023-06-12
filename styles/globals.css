@@ -49,6 +49,17 @@ body, .gradient {
   z-index: 5;
 }
 
+@media (max-width: 767px) {
+  .tab {
+    width: 100%;
+  }
+
+  .tab:hover{
+    width: 100%;
+  }
+}
+
+
 
 .indicator.active{
   background-color: black;

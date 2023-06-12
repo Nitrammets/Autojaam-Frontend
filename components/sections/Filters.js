@@ -32,8 +32,8 @@ function Filters({ posts, filterPosts, setFilteredPosts }) {
   } = useContext(FilterContext);
 
   return (
-    <div className="flex flex-col items-center w-5/6 mt-4">
-      <div className="flex justify-center flex-wrap w-5/6">
+    <div className="flex flex-col items-center w-11/12 lg:w-5/6 mt-4">
+      <div className="flex justify-center flex-wrap w-full lg:w-5/6">
         {carBrands.map((brand, _) => (
           <div key={_} onClick={() => toggleBrandFilter(brand.value)}>
             <h3
