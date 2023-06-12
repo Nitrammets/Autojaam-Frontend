@@ -16,7 +16,7 @@ function IconFilter({
       onMouseLeave={() => setIsHover(false)}
       onClick={() => toggleBodyFilter(filter)}
     >
-      <div className="h-[50px] flex flex-col justify-end">
+      <div className="h-[60px] md:h-[50px] flex flex-col justify-end">
         {React.cloneElement(imageComponent, {
           color: isHover || isActive ? "red" : "white",
           with: "100px",
