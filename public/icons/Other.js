@@ -10,7 +10,7 @@ function Other({ color }) {
       x="0px"
       y="0px"
       width="120px"
-      height="auto"
+      height="150px"
       viewBox="0 -40 1000 322.934"
       style={{
         stroke: color,

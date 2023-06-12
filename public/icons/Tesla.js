@@ -18,7 +18,7 @@ function Tesla({ color }) {
         x="0px"
         y="0px"
         width="120px"
-        height="auto"
+        height="150px"
         viewBox="0 -10 1000 223.57"
         style={{ stroke: color }}
         xmlSpace="preserve"

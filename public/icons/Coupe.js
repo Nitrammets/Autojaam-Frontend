@@ -10,7 +10,7 @@ function Coupe({ color }) {
       x="0px"
       y="0px"
       width="120px"
-      height="auto"
+      height="150px"
       viewBox="0 -70 1000 209.718"
       style={{
         stroke: color,

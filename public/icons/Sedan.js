@@ -10,7 +10,7 @@ function Sedan({ color }) {
       x="0px"
       y="0px"
       width="120px"
-      height="auto"
+      height="150px"
       viewBox="0 -30 1000 249.397"
       style={{
         stroke: color,

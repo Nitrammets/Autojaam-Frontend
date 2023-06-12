@@ -10,7 +10,7 @@ function Hatch({ color }) {
       x="0px"
       y="0px"
       width="120px"
-      height="auto"
+      height="150px"
       viewBox="0 -50 1000 240.168"
       style={{
         stroke: color,

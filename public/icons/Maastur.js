@@ -10,7 +10,7 @@ function Maastur({ color }) {
       x="0px"
       y="0px"
       width="120px"
-      height="auto"
+      height="150px"
       viewBox="0 0 1000 316.907"
       style={{
         stroke: color,

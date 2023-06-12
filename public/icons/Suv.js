@@ -15,7 +15,7 @@ function Suv({ color }) {
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         width="120px"
-        height="auto"
+        height="150px"
         viewBox="0 -10 1000 288.173"
         style={{ stroke: color }}
         xmlSpace="preserve"
