@@ -123,7 +123,7 @@ function Post({ post }) {
             </div>
           </div>
         </div>
-        <DividerHeader title={"TÄNAME PROOVISÕIDU EEST"} />
+        <DividerHeader title={"TÄNAME PROOVISÕIDU EEST"} wrap={true} />
         <div className="w-full flex justify-center">
           <a
             className="font-semibold text-4xl uppercase cursor-pointer pt-4"
