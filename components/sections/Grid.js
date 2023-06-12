@@ -31,6 +31,7 @@ function Grid() {
                       width={728}
                       height={970}
                       alt={post.model}
+                      priority
                     />
                   </div>
                 </motion.div>
