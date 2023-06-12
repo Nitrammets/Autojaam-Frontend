@@ -37,7 +37,7 @@ function Filters({ posts, filterPosts, setFilteredPosts }) {
         {carBrands.map((brand, _) => (
           <div key={_} onClick={() => toggleBrandFilter(brand.value)}>
             <h3
-              className={`mx-2 uppercase text-lg hover:text-aj-red transition-all cursor-pointer 
+              className={`mx-2 uppercase text-lg hover:md:text-aj-red transition-all cursor-pointer 
       ${brandFilter.includes(brand.value) ? "text-aj-red" : "text-white"}`}
             >
               {brand.name}
@@ -67,7 +67,7 @@ function Filters({ posts, filterPosts, setFilteredPosts }) {
               onClick={() => setSortingOption("price")}
               className={`${
                 sortingOption == "price" ? "text-aj-red" : "text-white"
-              } hover:text-aj-red  transition-all`}
+              } hover:md:text-aj-red  transition-all`}
             >
               <BiEuro size={"24"} />
             </span>
@@ -75,7 +75,7 @@ function Filters({ posts, filterPosts, setFilteredPosts }) {
               onClick={() => setSortingOption("name")}
               className={`${
                 sortingOption == "name" ? "text-aj-red" : "text-white"
-              } hover:text-aj-red  transition-all`}
+              } hover:md:text-aj-red  transition-all`}
             >
               <MdAbc size={"36"} />
             </span>
@@ -83,7 +83,7 @@ function Filters({ posts, filterPosts, setFilteredPosts }) {
               onClick={() => setSortingOption("date")}
               className={`${
                 sortingOption == "date" ? "text-aj-red" : "text-white"
-              } hover:text-aj-red  transition-all`}
+              } hover:md:text-aj-red  transition-all`}
             >
               <BiCalendar size={"24"} />
             </span>

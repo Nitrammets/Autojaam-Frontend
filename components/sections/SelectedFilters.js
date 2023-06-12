@@ -15,8 +15,8 @@ function SelectedFilters() {
   }
 
   return (
-    <div className="text-white flex flex-row items-center w-5/6 h-12 mt-4">
-      <div className="flex flex-row gap-2 w-full justify-center">
+    <div className="text-white flex flex-row items-center w-5/6 mt-4">
+      <div className="flex flex-row gap-2 w-full justify-center flex-wrap">
         {brandFilter.map((brand) => {
           if (brand !== "kõik") {
             return (

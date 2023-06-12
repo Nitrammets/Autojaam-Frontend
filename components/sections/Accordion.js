@@ -19,8 +19,8 @@ const featured = [
 function Accordion({ posts }) {
   const reorderedPosts = Array.from(posts, (post, index) => {
     if (index === 3) return posts[0];
+    if (index === 1) return posts[0];
     if (index === 0) return posts[1];
-    if (index === 1) return posts[2];
     return post;
   });
 
