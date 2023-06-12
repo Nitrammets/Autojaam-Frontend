@@ -17,7 +17,7 @@ function Header() {
         <div className="h-full w-full lg:w-11/12 flex flex-col lg:flex-row items-center justify-center lg:justify-start">
           {/* Logo */}
           <div className="relative w-[265px] h-[64px] min-w-[265px] my-4 lg:my-0">
-            <Image src="/autojaamlogo.png" fill alt="Logo" />
+            <Image src="/autojaamlogo.png" fill alt="Logo" priority />
           </div>
 
           {/* Menu */}
