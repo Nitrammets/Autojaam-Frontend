@@ -60,8 +60,8 @@ function Filters({ posts, filterPosts, setFilteredPosts }) {
             />
           );
         })}
-        <div className="flex flex-row">
-          <div className="h-18 border border-white mx-4"></div>
+        <div className="flex flex-row flex-grow justify-center w-full sm:w-auto">
+          <div className="h-18 border border-white mx-4 hidden md:block"></div>
           <div className="flex flex-col items-center pr-4">
             <span
               onClick={() => setSortingOption("price")}

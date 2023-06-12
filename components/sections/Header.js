@@ -21,7 +21,7 @@ function Header() {
           </div>
 
           {/* Menu */}
-          <nav className="lg:pl-2 flex-row items-center justify-start ml-0 lg:ml-auto gap-10 text-md md:text-lg lg:text-xl  font-sans font-light hidden md:flex">
+          <nav className="lg:pl-2 flex-row items-center justify-start ml-0 lg:ml-auto gap-10 text-md md:text-lg lg:text-lg xl:text-xl font-sans font-light hidden md:flex">
             <Link
               href={"/"}
               className={` uppercase hover:text-aj-red transition-all ${
