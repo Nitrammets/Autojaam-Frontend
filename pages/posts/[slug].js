@@ -11,7 +11,7 @@ function Post({ post }) {
     return null;
   }
 
-  console.log(post);
+  console.log(post.intro);
 
   return (
     <div className="flex flex-col justify-center mb-32">
@@ -40,14 +40,16 @@ function Post({ post }) {
         <div className="text-black text-center mt-12">
           <Paragraph value={post.intro ? post.intro : ""} />
         </div>
-        <div className="h-[300px] md:h-[600px] mt-12 mb-12">
-          <iframe
-            width="100%"
-            height="100%"
-            src={`https://www.youtube.com/embed/${post.youtube_id}`}
-            allowFullScreen
-          ></iframe>
-        </div>
+        {post.youtube_id && (
+          <div className="h-[300px] md:h-[600px] mt-12 mb-12">
+            <iframe
+              width="100%"
+              height="100%"
+              src={`https://www.youtube.com/embed/${post.youtube_id}`}
+              allowFullScreen
+            ></iframe>
+          </div>
+        )}
         <DividerHeader title={"Välimus"} />
         <div className="flex w-full flex-row gap-2 my-2 flex-wrap lg:flex-nowrap">
           <div className="w-1/2 text-justify flex-grow">

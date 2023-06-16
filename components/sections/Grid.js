@@ -30,13 +30,17 @@ function Grid() {
                   transition={{ duration: 0.2 }}
                 >
                   <div className="relative w-full h-full">
-                    <Image
-                      src={post.image}
-                      width={728}
-                      height={970}
-                      alt={post.model}
-                      priority
-                    />
+                    {post.image ? (
+                      <Image
+                        src={post.image}
+                        width={728}
+                        height={970}
+                        alt={post.model}
+                        priority
+                      />
+                    ) : (
+                      post.title
+                    )}
                   </div>
                 </motion.div>
               </Link>
