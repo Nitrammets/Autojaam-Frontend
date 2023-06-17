@@ -19,7 +19,7 @@ export default function Home({ posts, accordionPosts }) {
 
 export async function getStaticProps() {
   const accordionData = await getAccordionPosts();
-  console.log("Data:", accordionData);
+
   const data = await getPostsForGrid();
   return {
     props: {

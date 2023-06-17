@@ -11,8 +11,6 @@ function Post({ post }) {
     return null;
   }
 
-  console.log(post.intro);
-
   return (
     <div className="flex flex-col justify-center mb-32">
       <style>

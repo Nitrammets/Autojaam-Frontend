@@ -10,6 +10,13 @@ export function FilterProvider({ children, posts }) {
   const [sortingOption, setSortingOption] = useState("name");
   const [sortingOrder, setSortingOrder] = useState("asc");
 
+  const [visiblePosts, setVisiblePosts] = useState(6);
+  const postsPerPage = 6;
+
+  const loadMorePosts = () => {
+    setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + postsPerPage);
+  };
+
   const sortPosts = (posts) => {
     let sortedPosts;
     switch (sortingOption) {
@@ -61,6 +68,7 @@ export function FilterProvider({ children, posts }) {
 
     let sorted = sortPosts(filtered);
     setFilteredPosts(sorted);
+    setVisiblePosts(() => 6);
   }, [brandFilter, bodyFilter, sortingOption, sortingOrder]);
 
   const toggleBodyFilter = (filterObj) => {
@@ -114,6 +122,8 @@ export function FilterProvider({ children, posts }) {
         toggleSortingOrder,
         sortPosts,
         setSortingOrder,
+        visiblePosts,
+        loadMorePosts,
       }}
     >
       {children}
