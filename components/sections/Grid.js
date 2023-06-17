@@ -12,6 +12,8 @@ function Grid() {
 
   const paginatedPosts = filteredPosts?.slice(0, visiblePosts);
 
+  console.log(visiblePosts);
+
   return (
     <div className="flex justify-center my-6 flex-col items-center">
       <Filters />
