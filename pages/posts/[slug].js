@@ -6,6 +6,8 @@ import DividerHeader from "@/components/Utility/DividerHeader";
 import SlideShow from "@/components/Utility/SlideShow";
 import Image from "next/image";
 
+import Head from "next/head";
+
 function Post({ post }) {
   if (!post || !post.cover_img) {
     return null;
@@ -13,6 +15,20 @@ function Post({ post }) {
 
   return (
     <div className="flex flex-col justify-center mb-32">
+      <Head>
+        <title>Autojaam.ee - {post.manufacturer + " " + post.model}</title>
+        <meta
+          name="description"
+          content={`${
+            post.manufacturer + " " + post.model
+          } ülevaade: Loe lähemalt meie kogemusest proovisõidul ning saa teada ${
+            post.manufacturer + " " + post.model
+          } plussidest ja miinustest! ${post.intro[0].children[0].text.slice(
+            0,
+            100
+          )}...`}
+        />
+      </Head>
       <style>
         {`
             body {
