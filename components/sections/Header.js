@@ -16,9 +16,11 @@ function Header() {
       <header className="w-screen flex flex-col md:flex-row min-h-[130px] justify-center bg-aj-dark-black items-center">
         <div className="h-full w-full lg:w-11/12 flex flex-col lg:flex-row items-center justify-center lg:justify-start">
           {/* Logo */}
-          <div className="relative w-[265px] h-[64px] min-w-[265px] my-4 lg:my-0">
-            <Image src="/autojaamlogo.png" fill alt="Logo" priority />
-          </div>
+          <Link href={"/"}>
+            <div className="relative w-[265px] h-[64px] min-w-[265px] my-4 lg:my-0">
+              <Image src="/autojaamlogo.png" fill alt="Logo" priority />
+            </div>
+          </Link>
 
           {/* Menu */}
           <nav className="lg:pl-2 flex-row items-center justify-start ml-0 lg:ml-auto gap-10 text-md md:text-lg lg:text-lg xl:text-xl font-sans font-light hidden md:flex">

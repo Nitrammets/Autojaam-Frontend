@@ -76,7 +76,7 @@ function Post({ post }) {
           </div>
         </div>
         <div className="mt-12">
-          <SlideShow images={post.gallery_slides} />
+          {post.gallery_slides && <SlideShow images={post.gallery_slides} />}
         </div>
       </div>
       <div
@@ -111,7 +111,7 @@ function Post({ post }) {
             <div className="py-2"></div>
             <div className="gap-2 flex flex-col">
               <h2>Testitud mudeli info:</h2>
-              <h3>{post.price_tested}€</h3>
+              {post.price_tested && <h3>{post.price_tested}€</h3>}
               <h3>{post.fuel}</h3>
               <h3>{post.engine}</h3>
               <h3>{post.power}kW</h3>
